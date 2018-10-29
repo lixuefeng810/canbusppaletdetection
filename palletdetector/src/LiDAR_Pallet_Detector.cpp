@@ -200,7 +200,7 @@ void* RotorServiceCaller (void* Dummy)
     srv.request.Speed = HomeSpeed;
     std::cout << "-------------------------------------------"<<std::endl;
     std::cout << "Going To Home Position ..." << std::endl;
-    ROS_INFO(" Calling Rotor service, Pos = [%d] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
+    ROS_INFO(" Calling Rotor service, Pos = [%6.3f] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
     CurrentPalletDetectionState = PDS_GoingToHomePosition;
     if (client.call(srv))
     {
@@ -216,7 +216,7 @@ void* RotorServiceCaller (void* Dummy)
   srv.request.Speed = HomeSpeed;
   std::cout << "-------------------------------------------"<<std::endl;
   std::cout << "Going to Start Sweep Position..." << std::endl;
-  ROS_INFO(" Calling Rotor service, Pos = [%d] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
+  ROS_INFO(" Calling Rotor service, Pos = [%6.3f] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
   CurrentPalletDetectionState = PDS_GoingStartSweepPosition;
   if (client.call(srv))
   {
@@ -232,7 +232,7 @@ void* RotorServiceCaller (void* Dummy)
   srv.request.Speed = RotationSpeed;
   std::cout << "-------------------------------------------"<<std::endl;
   std::cout << "Scanning..." << std::endl;
-  ROS_INFO(" Calling Rotor service, Pos = [%d] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
+  ROS_INFO(" Calling Rotor service, Pos = [%6.3f] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
   CurrentPalletDetectionState = PDS_Scanning;
   if (client.call(srv))
   {
@@ -247,7 +247,7 @@ void* RotorServiceCaller (void* Dummy)
   srv.request.Speed = HomeSpeed;
   std::cout << "-------------------------------------------"<<std::endl;
   std::cout << "Returning To Home Position ..." << std::endl;
-  ROS_INFO(" Calling Rotor service, Pos = [%d] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
+  ROS_INFO(" Calling Rotor service, Pos = [%6.3f] degree, Speed = [%d]." , srv.request.SetpointPosDegree , srv.request.Speed);
   CurrentPalletDetectionState = PDS_GoingToHomePosition;
   if (client.call(srv))
   {
