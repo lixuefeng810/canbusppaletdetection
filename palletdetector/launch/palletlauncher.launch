@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+        <node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
+            <remap from="scan" to="vertical_scan" />
+            <!--param name="ip_address" value="192.168.0.10"/-->
+            <param name="serial_port" value="/dev/ttyACM1"/>
+            <param name="serial_baud" value="115200"/>
+            <param name="frame_id" value="vertical_laser_link" />
+            <param name="calibrate_time" value="true"/>
+            <param name="publish_intensity" value="false"/>
+            <param name="publish_multiecho" value="false"/>
+            <param name="min_ang" value="-0.785398163" />
+            <param name="max_ang" value="0.785398163" />
+            <param name="skip" value="0" />
+        </node>
+
+        <node pkg="canbusrotor" name="canbusrotor" type="canbusrotor" output="screen"/>
+
+	<node pkg="palletdetector" type="palletdetector" name="palletdetector" output="screen">
+	        <param name="ShouldReportParams" type="bool" value="true" />
+                <param name="StartSwipAngle" type="double" value="87"/>
+                <param name="EndSwipAngle" type="double" value="96" />
+                <param name="MinCaptureAngle" type="double" value="88" />
+                <param name="MaxCaptureAngle" type="double" value="95" />
+                <param name="HomeAngle" type="double" value="85" />
+                <param name="HomeSpeed" type="int" value="20" />
+                <param name="RotationSpeed" type="int" value="1" />
+	        <param name="RotationStepSize" type="int" value="7" />
+	        <param name="MinSquareLineLenght" type="double" value="0.001" />
+	        <param name="MaxSquareLineLenght" type="double" value="0.25" />
+	        <param name="MininPointsCount" type="int" value="0" />
+                <param name="AllowedPointDistance" type="double" value="0.03" />
+	        <param name="MinPointDistanceTolerance" type="double" value="0.05" />
+                <param name="PalletpillarThicknessMax" type="double" value="0.12" />
+                <param name="ForkWindowWidth" type="double" value="0.58" />
+                <param name="ForkWindowWidthTolerance" type="double" value="0.05" />
+	        <param name="MidPilarPointFromSidePilarLineDistanceMax" type="double" value="0.05" />
+                <param name="SensorElevation" type="double" value="0.135" />
+	        <param name="Publish3D" type="bool" value="true" />
+	        <param name="PublishRvizPalletLine" type="bool" value="true" />
+
+                <!-- For 3D Analysis-->
+                <param name="PalletWidthFor3DAnalysis" type="double" value="1.2" />
+                <param name="PalletWidthToleranceFor3DAnalysis" type="double" value="0.2" />
+                <param name="PalletAngleToleranceFor3DAnalysis" type="double" value="10" />
+                <param name="PalletCenterToleranceFor3DAnalysis" type="double" value="0.1" />
+
+        </node>
+        <!--node pkg="rviz" type="rviz" name="rviz" output="screen" args= "-d /home/ehsan/qtworkspace/src/palletdetector/nturvizconfig.rviz"/-->
+        <!--node pkg="rviz" type="rviz" name="rviz" output="screen" args= "-d /home/pallet/Desktop/temp.rviz"/-->
+        <node pkg="rviz" type="rviz" name="rviz" output="screen" args= "-d $(find palletdetector)/nturvizconfig.rviz"/>
+</launch>
+
+
+
+

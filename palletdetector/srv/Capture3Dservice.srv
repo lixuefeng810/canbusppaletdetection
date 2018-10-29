@@ -1,0 +1,3 @@
+int32 CaptureNext
+---
+geometry_msgs/Pose2D pose
