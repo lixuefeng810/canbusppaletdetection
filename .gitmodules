@@ -1,0 +1,3 @@
+[submodule "canbusrotor"]
+	path = canbusrotor
+	url = https://github.com/ehsanmihankhah/canbusrotor
