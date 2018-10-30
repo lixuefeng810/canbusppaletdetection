@@ -28,7 +28,7 @@
   <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
 
 
-  <buildtool_depend>catkin</buildtool_depend>
+<buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
